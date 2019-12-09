@@ -1,0 +1,31 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "laravel",
+            "dialect": "MariaDB",
+            "name": "MariaDB",
+            "password": "secret",
+            "port": 3306,
+            "server": "localhost",
+            "username": "fox"
+        },
+        {
+            "database": "laravel",
+            "dialect": "MariaDB",
+            "name": "MariaDB",
+            "password": "secret",
+            "port": 3306,
+            "server": "localhost",
+            "username": "fox"
+        },
+        {
+            "database": "laravel",
+            "dialect": "MySQL",
+            "name": "MySQL",
+            "password": "Secretdatabase!0",
+            "port": 3306,
+            "server": "localhost",
+            "username": "fox"
+        }
+    ]
+}
