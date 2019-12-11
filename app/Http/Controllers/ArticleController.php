@@ -45,7 +45,21 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($file = $request->file('image')){
+            $name = $file->getClientOriginalName();
+            $post = new Article;
+            $post->title = $request->input('title');
+            $post->body = $request->input('body');
+            $post->date = $request->input('date');
+            $post->image = $name;
+            $post->save();
+
+            $file->move('images/upload', $name);
+        } 
+        
+        if($post) {
+            return redirect('articles')->with('status', 'Article Created!');
+        }
     }
 
     /**
@@ -73,7 +87,7 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-
+        
     }
 
     /**
@@ -83,7 +97,7 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article)
+    public function update(Request $request, $id)
     {
         //
 
