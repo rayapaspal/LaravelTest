@@ -60,6 +60,8 @@ class ArticleController extends Controller
         if($post) {
             return redirect('articles')->with('status', 'Article Created!');
         }
+
+        //test
     }
 
     /**
