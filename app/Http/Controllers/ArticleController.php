@@ -34,7 +34,11 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        if(Auth::user()->is_admin == 1){
+            return view('articles.create');
+        } else {
+            return redirect('home');
+        }
     }
 
     /**
@@ -91,9 +95,14 @@ class ArticleController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function edit(Article $article)
+    public function edit($id)
     {
-        
+        if(Auth::user()->is_admin == 1){
+            $article = Article::findOrFail($id);
+            return view('articles.create', compact('article'));
+        } else {
+            return redirect('home');
+        }
     }
 
     /**
