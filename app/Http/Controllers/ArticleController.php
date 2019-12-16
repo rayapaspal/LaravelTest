@@ -45,6 +45,11 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'title' => 'bail|required|unique:articles|max:255',
+            'body' => 'required',
+        ]);
+
         if ($file = $request->file('image')){
             $name = $file->getClientOriginalName();
             $post = new Article;
